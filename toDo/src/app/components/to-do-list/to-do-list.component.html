@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card" style="width: 18rem;" *ngFor="let t of todos">
+                <img class="card-img-top" [src]="t.imageUrl" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{t.title}}</h5>
+                    <p class="card-text">{{t.body}}</p>
+                </div>
+                <button type="button" class="btn btn-light" (click)="Delete(t._id)">Delete</button>
+            </div>
+        </div>
+        <div class="col-6" id="form" [formGroup]="myForm">
+            <div class="mb-3">
+            <label  class="form-label">Insert Title</label>
+            <input type="text" class="form-control"  placeholder="title" formControlName="title">
+          </div>
+            <div class="mb-3">
+            <label  class="form-label">Insert ImageUrl</label>
+            <input type="text" class="form-control"  placeholder="URL" formControlName="imageUrl">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Insert Body</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="body"></textarea>
+          </div>
+          <button type="button" class="btn btn-light" (click)="insertToDo()">Submit</button>
+        </div>
+    </div>
+</div>
